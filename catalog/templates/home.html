@@ -1,0 +1,91 @@
+ 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <meta name="google-signin-client_id" content="872358073808-j8tbd4se0su7di5l0kk4gqhbd0vpdlje.apps.googleusercontent.com">
+  
+  <style>
+
+  
+</style>
+</head>
+<body class="clas1">
+
+
+
+
+
+
+
+
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="">Fan Store</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li><a href="{{url_for('home')}}">home</a></li>
+      <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">category<span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          
+          <li><a href="{{url_for('display_category')}}">categories</a></li>
+          <li><a href="{{url_for('newcategory')}}">add category</a></li>
+        </ul>
+      </li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      {% if 'email' in session %}
+    <li><h4 style="color:yellow;">{{session['email']}}</h4></li>
+       <li><a href="{{url_for('logout')}}"><span class="glyphicon glyphicon-user"></span>Logout</a></li>
+
+      
+      {% else %}
+           <li><a href="{{url_for('login')}}"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      {% endif %}
+    </ul>
+  </div>
+</nav>
+{% with messages = get_flashed_messages() %}
+<div >
+{% for each in messages %}
+<div class="alert alert-info">
+    {{ each }}
+  </div>
+{% endfor %}
+</div>
+{% endwith %}
+{% block content %}
+{% endblock %}
+</body>
+</html>
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+

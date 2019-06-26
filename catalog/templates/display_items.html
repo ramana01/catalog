@@ -1,0 +1,46 @@
+<!--<html>
+<body>
+<h1>show items of  category {{categoryid}}</h1>
+</body>
+</html>-->
+
+
+
+{% extends 'home.html' %}
+
+{% block content %}
+{% if Items %}
+	<div class="container">
+		<div class="card-columns">
+	{% for each in Items %}
+			
+		 	<div class="card w-75">
+		 		<div class="card-header">
+		 			<a href="{{url_for('iteminfo',category_id=each.fan_id,itemid=each.item_id)}}"><img src="{{each.item_image}}" width="220px" height="200px"></a>
+		 		</div>
+		    	<!--<div class="card-body">
+		    		
+		    		
+		    	</div>-->
+		    	<div class="card w-75">
+		    		<h4 style="color:green;">{{each.item_name}}</h4>
+		    	
+		    		<h4>${{each.item_price}}</h4>
+					<a href="{{url_for('modifyitem',categoryid=each.fan_id,itemid=each.item_id)}}"><h4>modify</h4></a>
+					<a href="{{url_for('removeitem',categoryid =each.fan_id,itemid=each.item_id)}}"><h4>delete</h4></a>
+
+		    </div>
+		 	</div>
+		
+			{% endfor %}
+</div>
+	</div>
+	{% else %}
+		no items found
+{% endif %}
+{% endblock %}
+
+
+
+
+

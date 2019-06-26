@@ -1,0 +1,32 @@
+<html>
+<body style="background-image: url({{url_for('static',filename='images/img4.jpg')}})">
+{% extends 'home.html' %}
+
+
+{% block content %}
+
+{% if categories %}
+
+	<!--<div class="container" style="background-image: url({{url_for('static',filename='images/img3.jpg')}}) ">-->
+		<div >
+
+	{% for each in categories %}
+
+	<div class="card w-75" style="background-image: url({{url_for('static',filename='images/img3.jpg')}}); background-repeat: no-repeat;  ">
+	
+	<a  href="{{url_for('showcategoryitems',category_id=each.fan_id)}}">
+		<h3 style="color: blue">{{each.fan_name}}...</h3>
+	</a><h4 ali><a style="text-align: right;" href="{{url_for('editcategory',category_id=each.fan_id)}}">Edit...</a>
+	<a href="{{url_for('newitem',categoryid=each.fan_id)}}"><h4 align='right' style="color:green">Add item.....</h4></a>
+
+</div>
+
+	{% endfor %}
+</div>
+
+	{% else %}
+		no items found
+{% endif %}
+{% endblock %}
+</body>
+</html>

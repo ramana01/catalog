@@ -1,0 +1,54 @@
+
+{% extends 'home.html' %}
+{% block content %}
+<div class="container">
+  <h3 style="color: orange;">Edit Category</h3><a style="color: red" href="{{url_for('deletecategory',category_id=id_category)}}"><h3 align="right">Delete....</a></h3>
+  <form method="post" action="{{url_for('editcategory',category_id=id_category)}}">
+    <div class="form-group">
+      <label>Name :</label>
+      <input type="text" class="form-control" id="email"  name="category_name" value='{{fan_name}}' required>
+    </div>
+    
+
+    <div class="container">
+  <h2></h2>
+  <!-- Button to Open the Modal -->
+  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal" style="background-color: green;">
+   Update category Name
+  </button>
+
+  <!-- The Modal -->
+  <div class="modal" id="myModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+      
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">Click to continue</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        
+        <!-- Modal body -->
+        <div class="modal-body">
+          
+        </div>
+        
+        <!-- Modal footer -->
+        <div class="modal-footer">
+        	<button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button> 
+	          <input type="submit"  class="btn btn-danger" style="background-color: blue;" value="Update">
+        </div>
+        
+      </div>
+    </div>
+  </div>
+  
+</div>
+
+
+    <!--<input type="submit" value="submit">-->
+    
+    <!-- <button type="submit" class="btn btn-primary">Submit</button>-->
+  </form>
+</div>
+{% endblock %}
